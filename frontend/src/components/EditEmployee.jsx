@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 
 function EditEmployee() {
   const {
@@ -28,7 +29,7 @@ function EditEmployee() {
   const saveModifiedEmp = async (modifiedEmp) => {
     try {
       const res = await axios.put(
-        `http://localhost:3000/employee-api/employee/${state._id}`,
+        `${API_BASE_URL}/employee-api/employee/${state._id}`,
         modifiedEmp
       );
 

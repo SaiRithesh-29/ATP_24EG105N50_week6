@@ -18,6 +18,12 @@ app.use(cors({
 app.use(exp.json());
 //forward req to empApp if path starts with /employee-api
 app.use('/employee-api',empApp);
+
+// Root route handler for status verification
+app.get('/', (req, res) => {
+  res.send("Employee Management System API is running successfully!");
+});
+
 //connect to DB server
 const port = process.env.PORT||3000
 async function connectDB(){

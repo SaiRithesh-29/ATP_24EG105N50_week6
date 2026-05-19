@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { API_BASE_URL } from "../config";
 import { useNavigate } from "react-router";
 
 function CreateEmp() {
@@ -18,7 +19,7 @@ function CreateEmp() {
     try {
       setLoading(true);
       //make HTTP POST req
-      let res = await fetch("http://localhost:3000/employee-api/employee", {
+      let res = await fetch(`${API_BASE_URL}/employee-api/employee`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newEmpObj),
