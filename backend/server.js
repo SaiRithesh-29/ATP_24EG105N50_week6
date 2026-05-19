@@ -11,7 +11,9 @@ const allowedOrigins = [process.env.FRONTEND_URL, 'https://atp-24eg105f19-emp.ve
 
 //add cors middleware
 app.use(cors({
-  origin: allowedOrigins
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }))
 app.use(exp.json());
 //forward req to empApp if path starts with /employee-api
